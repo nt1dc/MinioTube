@@ -18,10 +18,9 @@ fun Application.configureUploadRouting(
                 call.respond(FreeMarkerContent("upload.ftl", model = null))
             }
 
-            post("/upload") {
+            post("") {
                 call.respond(uploadController.upload(call))
             }
-
         }
     }
 }
