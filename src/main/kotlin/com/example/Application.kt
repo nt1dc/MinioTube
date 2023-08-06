@@ -22,7 +22,7 @@ fun main() {
         .start(wait = true)
 }
 
-val minioServiceComponent = module {
+val minioComponents = module {
     single<MinioConfig> {
         MinioConfigEnv()
     }
@@ -52,7 +52,7 @@ fun Application.module() {
         templateLoader = ClassTemplateLoader(this::class.java.classLoader, "templates")
     }
     install(Koin) {
-        modules(minioServiceComponent)
+        modules(minioComponents)
     }
     configureUploadRouting()
     configureStreamRouting()
